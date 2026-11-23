@@ -41,7 +41,11 @@ def lite(vid, title):
 
 hero_media = (f'<img class="portrait" src="{HERO_IMAGE}" alt="Chris Mitchell" width="800" height="1000">'
               if exists(HERO_IMAGE) else '')
-hero_cls = "hero has-photo" if hero_media else "hero"
+BANNER_IMAGE = "assets/images/banner-logo.jpg"
+use_banner = exists(BANNER_IMAGE)
+hero_cls = "hero banner" if use_banner else ("hero has-photo" if hero_media else "hero")
+hero_head = ('<h1 class="sr-only">Chris Mitchell</h1><img class="banner-img" src="%s" alt="Chris Mitchell" width="1376" height="768">' % BANNER_IMAGE) if use_banner else '<h1>Chris<br>Mitchell</h1>'
+if use_banner: hero_media = ""
 cover = (f'<img class="cover" src="{SING_COVER}" alt="Sing album cover" width="400" height="400">'
          if exists(SING_COVER) else '')
 tracks_html = "".join(f'<li><span>{e(t)}</span></li>' for t in SING_TRACKS)
@@ -92,7 +96,7 @@ PAGE = f'''<!DOCTYPE html>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=cm1">
+<link rel="stylesheet" href="css/style.css?v=cm2">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -113,7 +117,7 @@ PAGE = f'''<!DOCTYPE html>
 <section id="top" class="{hero_cls}">
   <div class="hero-text">
     <p class="kicker">Vocalist · Bandleader · Producer · Nashville</p>
-    <h1>Chris<br>Mitchell</h1>
+    {hero_head}
     <p class="lede">Making the world a better place one song at a time.</p>
     <p><a class="btn" href="#music">Hear the music</a> <a class="btn ghost" href="#contact">Get in touch</a></p>
   </div>
@@ -157,7 +161,7 @@ PAGE = f'''<!DOCTYPE html>
 <section id="studio">
   <h2>Studio</h2>
   <div class="prose">
-    <p><strong>Nickelbug Music</strong> in Nashville is Chris’s recording studio and the home of Nickelbug Records. He produces, records, mixes, and masters, and has worked on projects including Wellsprings Ltd.’s <em>Hell Of A Ride</em> and a live Roger Cook recording. He also does live sound and coaches singers.</p>
+    <p><strong>Nickelbug Music</strong> in Nashville is Chris’s recording studio and the home of Nickelbug Records. He produces, records, mixes, and masters, and has worked on projects including Wellsprings Ltd.’s <em>Hell Of A Ride</em> and live sessions recorded at Dee’s Country Cocktail Lounge. He also does live sound and coaches singers.</p>
   </div>
 </section>
 
