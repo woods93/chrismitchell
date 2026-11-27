@@ -42,6 +42,8 @@ def lite(vid, title):
 hero_media = (f'<img class="portrait" src="{HERO_IMAGE}" alt="Chris Mitchell" width="800" height="1000">'
               if exists(HERO_IMAGE) else '')
 BANNER_IMAGE = "assets/images/banner-logo.jpg"
+HEADER_LOGO = "assets/images/header-logo.png"
+brand_html = ('<img class="brand-logo" src="%s" alt="Chris Mitchell" width="417" height="200">' % HEADER_LOGO) if exists(HEADER_LOGO) else 'Chris Mitchell'
 use_banner = exists(BANNER_IMAGE)
 hero_cls = "hero banner" if use_banner else ("hero has-photo" if hero_media else "hero")
 hero_head = ('<h1 class="sr-only">Chris Mitchell</h1><img class="banner-img" src="%s" alt="Chris Mitchell" width="1376" height="768">' % BANNER_IMAGE) if use_banner else '<h1>Chris<br>Mitchell</h1>'
@@ -96,12 +98,12 @@ PAGE = f'''<!DOCTYPE html>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=cm2">
+<link rel="stylesheet" href="css/style.css?v=cm3">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="top">
-  <a class="brand" href="#top">Chris Mitchell</a>
+  <a class="brand" href="#top" aria-label="Chris Mitchell, back to top">{brand_html}</a>
   <nav aria-label="Main"><ul>
     <li><a href="#bio">Bio</a></li>
     <li><a href="#music">Music</a></li>
