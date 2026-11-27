@@ -13,7 +13,7 @@ HERO_IMAGE = "assets/images/hero.jpg"       # used only if the file exists
 SING_COVER = "assets/images/sing-cover.jpg" # used only if the file exists
 AUDIO = []   # e.g. [("All The Things You Are", "assets/audio/all-the-things-you-are.mp3")]
 LINKS = []   # [("Spotify", url), ("Apple Music", url), ("YouTube", url)] once Chris confirms official links
-VIDEOS = []  # [(youtube_id, "Title", "Note")]
+VIDEOS = [("tdy1snvzzmc", "Ned Zeppelin: Whole Lotta Love", "Live at The Rutledge, Nashville, August 10, 2010.")]  # [(youtube_id, "Title", "Note")]
 
 SING_TRACKS = [
     "I Will Love Again", "All The Things You Are", "Love Somebody", "Unconcerned",
